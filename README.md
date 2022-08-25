@@ -1,2 +1,1 @@
-# dronenews-workspace
-dronenews workspace
+# Tutorial workspace
