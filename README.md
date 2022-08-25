@@ -27,7 +27,7 @@ $ npm run dev-install
 $ npm run server
 $ npm run build-all
 ```
-The SSApp application loader is the first thing you will see after running the template-workspace* web server and accessing ```http://localhost:8080```. 
+The SSApp application loader is the first thing you will see after running the *tutorial-workspace* web server and accessing ```http://localhost:8080```. 
 It is a basic web application which allows creation and loading of wallets based on the menu wallet template. The SSApp loader registers a service worker responsible with loading the built SSApps from the Brick Storage.
 
 ### Adding more ssapps
