@@ -17,8 +17,8 @@
             ]
         },
         {
-            "name": "privatesky",
-            "src": "http://github.com/privatesky/privatesky.git",
+            "name": "opendsu-sdk",
+            "src": "http://github.com/opendsu/opendsu-sdk.git",
             "actions": [
                 {
                     "type": "smartClone",
@@ -27,34 +27,34 @@
                 },
                 {
                     "type": "execute",
-                    "cmd": "cd privatesky && npm install"
+                    "cmd": "cd opendsu-sdk && npm install"
                 }
             ]
         },
         {
-            "name": "build privatesky",
+            "name": "build opendsu-sdk",
             "actions": [
                 {
                     "type": "execute",
-                    "cmd": "cd privatesky && npm run build"
+                    "cmd": "cd opendsu-sdk && npm run build"
                 }
             ]
         },
         {
             "name": "themes/blue-fluorite-theme",
-            "src": "https://github.com/PrivateSky/blue-fluorite-theme.git",
+            "src": "https://github.com/opendsu/blue-fluorite-theme.git",
             "actions": [
-                {
-                    "type": "smartClone",
-                    "target": ".",
-                    "collectLog": false
-                },
-                {
-                    "type": "execute",
-                    "cmd": "cd themes/blue-fluorite-theme && npm install"
-                }
+              {
+                "type": "smartClone",
+                "target": ".",
+                "collectLog": false
+              },
+              {
+                "type": "execute",
+                "cmd": "cd themes/blue-fluorite-theme && npm install"
+              }
             ]
-        }
+          }
     ],
     "patch": [
         {
@@ -81,8 +81,30 @@
                     "cmd": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"node ./bin/octopusRun.js patch\""
                 }
             ]
-        }
+        },
+        {
+            "name": "copy-bundles",
+            "actions": [
+              {
+                "type": "copy",
+                "src": "./opendsu-sdk/psknode/bundles/webshims.js",
+                "target": "./apihub-root/bundles/webshims.js",
+                "options": {
+                  "overwrite": true
+                }
+              },
+              {
+                "type": "copy",
+                "src": "./opendsu-sdk/psknode/bundles/loaderBoot.js",
+                "target": "./apihub-root/bundles/loaderBoot.js",
+                "options": {
+                  "overwrite": true
+                }
+              }
+            ]
+          }
     ],
+    
     "ssapps-and-wallets-build": [
         {
             "name": "webcardinal-wallet-build",
